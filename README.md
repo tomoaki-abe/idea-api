@@ -22,3 +22,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# idea-api DB設計
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+### Association
+- has_many :ideas
+
+## ideasテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_id|integer|null: false|
+|body|text|null: false|
+### Association
+- belongs_to :category
