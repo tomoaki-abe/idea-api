@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'ideas/index'
-  get 'ideas/show'
-  resources :categories, only: :index
+  resources :fronts, only: :index
+  resources :categories, only: [:index, :show, :new, :create]
+  root to: 'fronts#index'
 end

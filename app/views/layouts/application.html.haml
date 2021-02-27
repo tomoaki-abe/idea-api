@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title IdeaApi
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.header
+      .header__banner
+        .header__banner__tittle
+          アイデア掲示板
+    = yield
+  -#  %footer.footer
+    -# = render "new_contents"
+    -#   %ul.footer__contents
+    -#     %li.footer__content
+    -#       %h2.footer__content--head FURIMAについて
+    -#     %li.footer__content
+    -#       %h2.footer__content--head ヘルプ＆ガイド
+    -#       %ul
+    -#         %li
