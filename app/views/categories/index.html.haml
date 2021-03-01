@@ -2,11 +2,9 @@
   .contents-wrapper
     .contents-wrapper__form
       .contents-wrapper__form__set
-        .contents-wrapper__form__set__category
-          メモ術
-        .contents-wrapper__form__set__idea
-          箇条書きがお勧め
-        .contents-wrapper__form__set__category
-          節約術
-        .contents-wrapper__form__set__idea
-          家計簿をつけるといい
+        - @categories.each do |category|
+          .contents-wrapper__form__set__category
+            = category.name
+          .contents-wrapper__form__set__idea
+            - category.ideas.each do |idea|
+              = idea.body

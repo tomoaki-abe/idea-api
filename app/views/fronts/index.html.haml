@@ -1,15 +1,15 @@
 .Body
   .main-wrapper
+    .main-wrapper__btn
+      .main-wrapper__btn__registration
+        = link_to "アイデア新規登録", new_category_path, class:"product__head"
+      .main-wrapper__btn__full
+        = link_to "アイデア一覧", categories_path, class:"product__head"
     .main-wrapper__search
       .main-wrapper__search__box
         カテゴリーを検索する
       .main-wrapper__search__btn
         検索
-    .main-wrapper__btn
-      .main-wrapper__btn__registration
-        アイデア新規登録
-      .main-wrapper__btn__full
-        アイデア一覧
 
 
 

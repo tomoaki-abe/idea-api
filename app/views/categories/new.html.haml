@@ -2,9 +2,15 @@
   .contents-wrapper
     .contents-wrapper__form
       .contents-wrapper__form__set
-        .contents-wrapper__form__set__information
-          カテゴリ
-        .contents-wrapper__form__set__information
-          アイデア
-        .contents-wrapper__form__set__btn
-          登録
+        = form_with model: @category, local: true do |f|
+          .contents-wrapper__form__set__information
+            カテゴリ
+            = f.text_field :name, placeholder: ' 例）furima'
+          .contents-wrapper__form__set__information
+            アイデア
+            = f.fields_for :ideas do |i|
+              = i.text_field :body
+            -# = f.text_field :body , class: "contents-wrapper__form__set__information--area", placeholder: "  40文字まで" ,maxlength: "40"
+          .contents-wrapper__form__set__btn
+            = f.submit '登録する', class: "profile-btn"
+            
