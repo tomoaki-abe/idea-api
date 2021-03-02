@@ -2,15 +2,13 @@
   .contents-wrapper
     .contents-wrapper__form
       .contents-wrapper__form__set
-        = form_with model: @category, local: true do |f|
+        = form_with model: @idea, local: true do |f|
           = render 'layouts/error_messages', model: f.object
           .contents-wrapper__form__set__information
-            カテゴリ
-            = f.text_field :name
+            同じカテゴリー
+            = f.collection_select(:name, @categories, :id, :name, { prompt: "選択してください" })
           .contents-wrapper__form__set__information
             アイデア
-            = f.fields_for :ideas do |i|
-              = i.text_field :body
+            = f.text_field :body
           .contents-wrapper__form__set__btn
-            = f.submit '登録する', class: "profile-btn"
-            
+            = f.submit '追加する', class: "profile-btn"

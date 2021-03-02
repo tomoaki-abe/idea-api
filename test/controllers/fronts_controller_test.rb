@@ -5,5 +5,4 @@ class FrontsControllerTest < ActionDispatch::IntegrationTest
     get fronts_index_url
     assert_response :success
   end
-
 end

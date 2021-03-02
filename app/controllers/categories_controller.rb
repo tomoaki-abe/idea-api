@@ -2,22 +2,28 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.includes(:ideas)
   end
-  
-  def show
-    @category = Category.find(params[:id])
-  end
 
   def new
     @category = Category.new
-    @category.ideas.build
+    @category.ideas.new
+    @categories = Category.all
   end
 
   def create
-    # binding.pry
-    Category.create(category_params)
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to root_path, notice: '登録できました'
+    else
+      render :new
+    end
+  end
+
+  def choice
+    @categories = Category.all
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name, ideas_attributes: [:body])
   end

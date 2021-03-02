@@ -6,19 +6,13 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'
   %body
-    %header.header
-      .header__banner
-        .header__banner__tittle
-          アイデア掲示板
-    = yield
-  -#  %footer.footer
-    -# = render "new_contents"
-    -#   %ul.footer__contents
-    -#     %li.footer__content
-    -#       %h2.footer__content--head FURIMAについて
-    -#     %li.footer__content
-    -#       %h2.footer__content--head ヘルプ＆ガイド
-    -#       %ul
-    -#         %li
+    = render 'layouts/notifications'
+    .main
+      .main__contaner
+        %header.header
+          .header__banner
+            .header__banner__tittle
+              アイデア掲示板
+            = yield

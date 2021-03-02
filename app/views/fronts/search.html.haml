@@ -1,7 +1,7 @@
-.full-contents
+.partial-contents
   .contents-wrapper
     .contents-wrapper__form
-      %h2 アイデア一覧
+      %h2 検索結果
       .contents-wrapper__form__set
         - @categories.each do |category|
           .contents-wrapper__form__set__box
@@ -10,4 +10,3 @@
             .contents-wrapper__form__set__idea
               - category.ideas.each do |idea|
                 = idea.body
-                %br/

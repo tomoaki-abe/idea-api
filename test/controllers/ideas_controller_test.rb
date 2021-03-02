@@ -10,5 +10,4 @@ class IdeasControllerTest < ActionDispatch::IntegrationTest
     get ideas_show_url
     assert_response :success
   end
-
 end

@@ -2,14 +2,12 @@
   .main-wrapper
     .main-wrapper__btn
       .main-wrapper__btn__registration
-        = link_to "アイデア新規登録", new_category_path, class:"product__head"
+        = link_to "アイデア登録", choice_categories_path, class:"product__head"
       .main-wrapper__btn__full
         = link_to "アイデア一覧", categories_path, class:"product__head"
     .main-wrapper__search
-      .main-wrapper__search__box
-        カテゴリーを検索する
-      .main-wrapper__search__btn
-        検索
-
-
-
+      = form_with(url: search_fronts_path, local: true, method: :get, class: "search-form") do |form| 
+        .main-wrapper__search__box
+          = form.text_field :keyword, placeholder: "カテゴリーを検索する", class: "search-input" 
+        .main-wrapper__search__btn
+          = form.submit "検索", class: "search-btn" 
